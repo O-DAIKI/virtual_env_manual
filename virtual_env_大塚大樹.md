@@ -1,5 +1,7 @@
 # 環境構築手順書
 
+<br />
+
 ## 【バージョン一覧】
 
 <br />
@@ -28,6 +30,8 @@ Vagrantをインストールします。
 ```
 $ brew install --cask vagrant
 ```
+
+<br />
 
 ### □ vagrant boxのインストール
 
@@ -75,7 +79,6 @@ Vagrantの作業用ディレクトリを作成します。
 * デスクトップ
 
 <br/>
-
 
 ```
 $ mkdir [フォルダ名]
@@ -593,7 +596,7 @@ npm install
 
 <br />
 
-### ReaDouble
+### ・ReaDouble
 [セキュリティ: 認証](https://readouble.com/laravel/6.x/ja/authentication.html)
 
 <br />
