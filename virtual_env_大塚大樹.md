@@ -12,8 +12,10 @@
 | Nginx   | 1.19.9          |
 | CentOS  | 7.9.2009 (core) |
 | MySQL   | 5.7.33          |
-| Laravel | 6.20.22         |
+| Laravel | ※6.20.22        |
 
+<br />
+※Laravel 6.*系では最新のバージョンがインストールされます。
 <br />
 <br />
 
@@ -27,7 +29,8 @@
 
 Vagrantをインストールします。
 ターミナルを開いて下記のコマンドを実行してください。
-```
+
+```sh
 $ brew install --cask vagrant
 ```
 
@@ -39,7 +42,8 @@ $ brew install --cask vagrant
 
 boxをダウンロードします。
 コマンドを実行するディレクトリはどこでも構いません。
-```
+
+```sh
 $ vagrant box add centos/7
 ```
 
@@ -154,7 +158,11 @@ $ vagrant plugin list
 
 <br />
 
-正常にプラグインがインストールされていればプラグインのリストとバージョンが表示されるはずです。
+正常にプラグインがインストールされていれば下記のようにプラグインのリストとバージョンが表示されるはずです。
+
+```
+vagrant-vbguest (0.29.0, global)
+```
 
 <br />
 
@@ -327,9 +335,8 @@ $ mysql --version
 
 <br />
 
-MacあるいはWindowsにMySQLをインストールしたときは、  
-何も入力せずに接続が可能だったかと思いますが今回はデフォルトでrootにパスワードが設定されてしまっています。  
-まずはpasswordを調べ、接続しpassswordの再設定を行っていく必要があります。
+MySQLの初期パスワードは less /var/log/mysqld.log に発行されます。
+まずはpasswordを調べ、接続しpassswordの再設定を行っていきましょう。
 
 ```
 $ sudo cat /var/log/mysqld.log | grep 'temporary password'  # このコマンドを実行したら下記のように表示されたらOKです
@@ -397,7 +404,7 @@ $ sudo vi /etc/yum.repos.d/nginx.repo
 
 書き込む内容は以下になります。
 
-```
+```console
 [nginx]
 name=nginx repo
 baseurl=https://nginx.org/packages/mainline/centos/\$releasever/\$basearch/
@@ -448,7 +455,7 @@ server {
   listen       80;
   server_name  192.168.33.19; # Vagranfileでコメントを外した箇所のipアドレスを記述してください。
   # ApacheのDocumentRootにあたります
-  root /vagrant/laravel_app_6.0/public; # 追記
+  root /vagrant/[アプリ名]/public; # 追記
   index  index.html index.htm index.php; # 追記
 
   #charset koi8-r;
